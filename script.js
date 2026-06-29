@@ -19,7 +19,7 @@ const searchEmpty = document.getElementById('searchEmpty');
 let cart = [];
 
 function formatPrice(value) {
-    return `$${value.toFixed(0)}`;
+    return `${value.toLocaleString('ru-RU')} сом`;
 }
 
 function renderCart() {
@@ -115,7 +115,7 @@ function addProductToCart(buttonOrCard) {
     const name = card.querySelector('.product-name').textContent.trim();
     const priceText = card.querySelector('.product-price').textContent.trim();
     const image = card.querySelector('img').src;
-    const price = Number(priceText.replace('$', '').replace(',', ''));
+    const price = Number(priceText.replace(/\D/g, ''));
 
     cart.push({ name, price, image });
     renderCart();

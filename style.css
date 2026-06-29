@@ -569,6 +569,12 @@ a:active, button:active,
     gap: 12px;
 }
 
+.product-price,
+.cart-item-price,
+.cart-total-row strong {
+    font-variant-numeric: tabular-nums;
+}
+
 .product-price {
     font-size: 20px;
     font-weight: 800;
