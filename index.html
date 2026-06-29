@@ -218,6 +218,42 @@
         </div>
     </div>
 
+    <div class="checkout-modal" id="checkoutModal" aria-hidden="true" role="dialog" aria-labelledby="checkoutTitle">
+        <div class="checkout-modal-header">
+            <h3 id="checkoutTitle">Заказды тариздөө</h3>
+            <button class="checkout-close" type="button" aria-label="Жабуу">×</button>
+        </div>
+        <form class="checkout-form" id="checkoutForm">
+            <label class="form-group">
+                <span>Аты-жөнү</span>
+                <input type="text" name="fullName" required>
+            </label>
+            <label class="form-group">
+                <span>Телефон номери</span>
+                <input type="tel" name="phone" required>
+            </label>
+            <label class="form-group">
+                <span>Жеткирүү дареги</span>
+                <textarea name="address" rows="3" required></textarea>
+            </label>
+            <div class="form-group">
+                <span>Төлөм ыкмасы</span>
+                <div class="payment-options">
+                    <label><input type="radio" name="payment" value="Наличка" required> Наличка</label>
+                    <label><input type="radio" name="payment" value="Перевод"> Перевод</label>
+                </div>
+            </div>
+            <button type="submit" class="checkout-submit-btn">Заказды жөнөтүү</button>
+        </form>
+    </div>
+
+    <div class="success-modal" id="successModal" aria-hidden="true" role="dialog" aria-labelledby="successTitle">
+        <div class="success-icon">✓</div>
+        <h3 id="successTitle">Заказ кабыл алынды!</h3>
+        <p>Заказыңыз кабыл алынды! Максимум 3 күн, минимум 1 күндө жеткирип беребиз. Бизге ишенгениңиз үчүн рахмат!</p>
+        <button class="success-btn" type="button">ОК</button>
+    </div>
+
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
