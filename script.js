@@ -6,7 +6,9 @@ const cartCount = document.querySelector('.cart-count');
 const cartItems = document.getElementById('cartItems');
 const cartTotal = document.getElementById('cartTotal');
 const addButtons = document.querySelectorAll('.add-to-cart-btn');
-const productCards = document.querySelectorAll('.product-card');
+const productCards = Array.from(document.querySelectorAll('.product-card'));
+const searchInput = document.getElementById('search');
+const searchEmpty = document.getElementById('searchEmpty');
 
 let cart = [];
 
@@ -63,7 +65,6 @@ function addProductToCart(buttonOrCard) {
 
     cart.push({ name, price, image });
     renderCart();
-    openCart();
 }
 
 function removeFromCart(index) {
@@ -102,10 +103,31 @@ cartItems.addEventListener('click', (event) => {
 cartClose.addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
 
+function filterProducts() {
+    const query = searchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    productCards.forEach((card) => {
+        const text = card.textContent.toLowerCase();
+        const matches = text.includes(query);
+        card.style.display = matches ? '' : 'none';
+
+        if (matches) {
+            visibleCount += 1;
+        }
+    });
+
+    searchEmpty.hidden = visibleCount !== 0;
+}
+
+searchInput.addEventListener('input', filterProducts);
+
+
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         closeCart();
     }
 });
 
+filterProducts();
 renderCart();
